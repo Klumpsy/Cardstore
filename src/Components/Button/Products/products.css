@@ -2,14 +2,20 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
   height: 100vh;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 #product-container #product-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -20,12 +26,12 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   border-radius: 5%;
   margin: 5px;
   max-width: 300px;
+  min-width: 300px;
   max-height: 450px;
+  min-height: 450px;
   background: #6d756f;
   background: linear-gradient(315deg, #6d756f 0%, #0c0d0c 35%, #171716 100%);
   color: white;
@@ -37,11 +43,26 @@
   max-width: 80%;
   margin-bottom: 20px;
   border: 2px solid white;
-  -webkit-box-shadow: rgba(241, 240, 240, 0.65) 0px 15px 25px, rgba(238, 236, 236, 0.5) 0px 5px 10px;
-          box-shadow: rgba(241, 240, 240, 0.65) 0px 15px 25px, rgba(238, 236, 236, 0.5) 0px 5px 10px;
+  -webkit-box-shadow: #929495 0px 20px 30px -10px;
+          box-shadow: #929495 0px 20px 30px -10px;
 }
 
 #product-container #product-item h3 {
   font-size: 25px;
+}
+
+#product-container #product-item #product-shopping-card-icon {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+#product-container #product-item #product-shopping-card-icon:hover {
+  cursor: pointer;
+  color: #93ec93;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
 }
 /*# sourceMappingURL=products.css.map */
