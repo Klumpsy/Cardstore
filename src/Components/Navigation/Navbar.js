@@ -5,9 +5,9 @@ import "./navbar.css"
 import {HiShoppingCart} from "react-icons/hi"
 import {CgPokemon} from "react-icons/cg"
 
-function Navbar() {
+function Navbar({ totalItems }) {
     return (
-        <nav id="navbar-wrapper">
+        <nav id="navbar-wrapper" data-testid="navbar-test">
             <div  id="navbar-home-container">
                 <CgPokemon
                 size={28}
@@ -21,8 +21,9 @@ function Navbar() {
                 <a>Cards</a>
                 <a>Sealed product</a>
                 <HiShoppingCart 
-                id="navbar-checkout-card"
+                id="navbar-checkout-cart"
                 size={30}/>
+                <span id="navbar-checkout-cart-amount-view">{totalItems}</span>
             </div>
         </nav>
     )

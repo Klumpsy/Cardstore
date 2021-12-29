@@ -43,6 +43,7 @@
 }
 
 #navbar-wrapper #navbar-link-container {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -65,16 +66,38 @@
   transition: .4s ease-in-out;
 }
 
-#navbar-wrapper #navbar-link-container #navbar-checkout-card {
+#navbar-wrapper #navbar-link-container #navbar-checkout-cart {
   margin: 10px;
 }
 
-#navbar-wrapper #navbar-link-container #navbar-checkout-card:hover {
+#navbar-wrapper #navbar-link-container #navbar-checkout-cart:hover {
   color: #91d891;
   cursor: pointer;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
   -webkit-transition: .4s ease-in-out;
   transition: .4s ease-in-out;
+}
+
+#navbar-wrapper #navbar-link-container #navbar-checkout-cart-amount-view {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 25px;
+  height: 25px;
+  right: -10px;
+  top: -10px;
+  color: black;
+  font-weight: 800;
+  font-size: 14px;
+  border-radius: 40%;
+  background-color: #91d891;
 }
 /*# sourceMappingURL=navbar.css.map */

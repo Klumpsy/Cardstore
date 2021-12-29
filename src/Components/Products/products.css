@@ -48,7 +48,8 @@
 }
 
 #product-container #product-item h3 {
-  font-size: 25px;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 #product-container #product-item #product-shopping-card-icon {
