@@ -12,9 +12,15 @@ function CartItem({item, handleUpdateCartQuantity, handleRemoveItemFromCart}) {
             <div id="cart-item-info">
                 <img id="cart-item-image" src={item.image.url}/>
                 <div id ="cart-item-quantity">
-                    <button id="cart-item-decrement-button">-</button>
+                    <button 
+                    id="cart-item-decrement-button"
+                    onClick = {() => handleUpdateCartQuantity(item.id, item.quantity - 1)}
+                    >-</button>
                     <span>{item.quantity}</span>
-                    <button id="cart-item-increment-button">+</button>
+                    <button 
+                    id="cart-item-increment-button"
+                    onClick = {() => handleUpdateCartQuantity(item.id, item.quantity + 1)}
+                    >+</button>
                 </div>
                 <span>{item.name}</span>
             </div>

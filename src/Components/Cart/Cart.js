@@ -34,10 +34,11 @@ function Cart({ cart, handleUpdateCartQuantity, handleRemoveItemFromCart, handle
                     id="cart-empty-cart-button"
                     onClick = {handleEmptyCart}
                     >Empty Cart</button>
-                    <button 
+                    <Link
                     className ="cart-button" 
                     id="cart-checkout-button"
-                    >Checkout</button>
+                    to = "/checkout"
+                    >Checkout</Link>
                 </div>
                 <div id="cart-checkout-subtotal-price">
                     <h3>Subtotal: </h3>
@@ -51,6 +52,7 @@ function Cart({ cart, handleUpdateCartQuantity, handleRemoveItemFromCart, handle
 
     return (
         <main id="cart-checkout-container">
+            <h1>Your Shopping cart</h1>
             {!cart.line_items.length ? <EmptyCard/> : <FilledCard/>}
         </main>
     )

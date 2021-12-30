@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Navbar from "./Components/Navigation/Navbar";
 import Products from "./Components/Products/Products";
 import Cart from "./Components/Cart/Cart";
+import Checkout from "./Components/CheckoutForm/Checkout/Checkout";
 
 //Commerce instance 
 import {commerce} from "./lib/commerce"; 
@@ -70,6 +71,7 @@ function App() {
             handleEmptyCart ={handleEmptyCart}
             />
             }/>
+            <Route path = "/checkout" element = {<Checkout/>}/>
           </Routes>
         </div>
       </Router>
