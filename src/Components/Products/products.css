@@ -66,4 +66,15 @@
   -webkit-transition: .4s ease-in-out;
   transition: .4s ease-in-out;
 }
+
+#cart-checkout-loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  width: 100%;
+}
 /*# sourceMappingURL=products.css.map */

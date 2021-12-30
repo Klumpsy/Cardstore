@@ -1,0 +1,68 @@
+@import "../../../colorscheme"; 
+
+#cart-item { 
+    display: flex;
+    position: relative; 
+    justify-content: space-between;
+    width: 100%; 
+    border-bottom: 1px solid white; 
+    margin-bottom: 5px; 
+    #cart-item-info { 
+        display: flex;
+        align-items: flex-end;
+        #cart-item-quantity { 
+            justify-content: center;
+            align-items: center; 
+            button { 
+                margin-left: 5px; 
+                width: 25px;
+                height: 25px; 
+                color: black; 
+                background-color: white;
+                border: none;
+                margin-bottom: 1px; 
+                font-size: 17px; 
+                &:hover { 
+                    cursor: pointer;
+                }
+            }
+            #cart-item-decrement-button { 
+                &:hover { 
+                   background-color: $decrementButtonColor; 
+                }
+            }
+            #cart-item-increment-button { 
+                &:hover { 
+                   background-color: $incrementButtonColor; 
+                }
+            }
+            span { 
+                padding: 5px; 
+                margin-left: 5px; 
+            }
+        }
+    }
+    div span { 
+        margin-left: 10px; 
+    }
+
+    #cart-item-image{ 
+        width: 100px;
+        margin-right: 5px;
+    }
+
+    #cart-item-price { 
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    #cart-item-remove-item-button { 
+        position: absolute; 
+        right: 10px; 
+        top: 10px; 
+        &:hover{ 
+            color: $decrementButtonColor;
+            cursor: pointer;
+        }
+    }
+}

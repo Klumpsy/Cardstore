@@ -1,5 +1,6 @@
 import react from "react";
 import { useState, useEffect } from "react";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 //Components 
 import Navbar from "./Components/Navigation/Navbar";
@@ -26,8 +27,26 @@ function App() {
 
   //Function for adding items to the shoppingcart 
   const handleAddToCard = async (productId, quantity) => { 
-    const addedItem = await commerce.cart.add(productId, quantity); 
-    setCart(addedItem.cart); 
+    const { cart } = await commerce.cart.add(productId, quantity); 
+    setCart(cart); 
+  }
+
+  //Function for updating cart quantity
+  const handleUpdateCartQuantity = async (productId, quantity) => { 
+    const { cart } = await commerce.cart.update(productId, {quantity}); 
+    setCart(cart);
+  }
+
+  //Function for removing items from the cart 
+  const handleRemoveItemFromCart = async (productId) => { 
+    const { cart } = await commerce.cart.remove(productId); 
+    setCart(cart); 
+  }
+
+  //Function for emptying the entire cart 
+  const handleEmptyCart = async () => { 
+    const { cart } = await commerce.cart.empty(); 
+    setCart(cart); 
   }
 
   useEffect(() => { 
@@ -35,23 +54,27 @@ function App() {
     fetchCart(); 
   },[])
 
-  console.log(cart)
-
   return (
-    <div className="App">
-      <Navbar
-      totalItems = {cart.total_items}
-      />
-      <Products 
-      products = {products}
-      addProduct = {handleAddToCard}
-      />
-      <Cart 
-      cart = {cart.line_items}
-      />
-    </div>
+      <Router>
+         <div className="App">
+         <Navbar totalItems = {cart.total_items}/>
+          <Routes>
+            <Route path = "/" element = {<Products products = {products} addProduct = {handleAddToCard}/>}/>
+            <Route 
+            path = "/cart" 
+            element = {
+            <Cart 
+            cart = {cart}
+            handleUpdateCartQuantity = {handleUpdateCartQuantity}
+            handleRemoveItemFromCart = {handleRemoveItemFromCart}
+            handleEmptyCart ={handleEmptyCart}
+            />
+            }/>
+          </Routes>
+        </div>
+      </Router>
   );
-}
+} 
 
 export default App;
 
