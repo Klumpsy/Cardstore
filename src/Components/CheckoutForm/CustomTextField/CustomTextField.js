@@ -1,22 +1,23 @@
 import React from 'react'
-import {useFormContext, Controller} from "react-hook-form"; 
+import {useFormContext} from "react-hook-form"; 
 
-function CustomTextField({name, label, required}) {
+import "./customTextField.css"
+
+function CustomTextField({name, label}) {
     const { control } = useFormContext(); 
 
     return (
-        <div>
-            <Controller
-                as = {<input/>}
-                control={control}
-                name = {name}
-                label = {label}
-                required = {required}
+        <>
+            <label id= "checkout-text-field-label">{label}</label>
+            <input
+            control={control}
+            name = {name}
             />
-        </div>
+        </>
     )
 }
 
 export default CustomTextField
 
-//https://react-hook-form.com/api/usecontroller/controller
+
+

@@ -1,18 +1,43 @@
-import React, {useState} from 'react'
-import "./checkout.css"
+import React, {useState, useEffect} from 'react';
+import "./checkout.css";
+import {commerce} from "../../../lib/commerce";
 
 //Icons 
-import {IoMdCheckmarkCircleOutline} from "react-icons/io"
+import {IoMdCheckmarkCircleOutline} from "react-icons/io";
 
 //Components
 import AddressForm from '../AddresForm/AddressForm';
-import PaymentForm from "../PaymentForm/PaymentForm"
-import Confirmation from "../Confirmation/Confirmation"
+import PaymentForm from "../PaymentForm/PaymentForm";
+import Confirmation from "../Confirmation/Confirmation";
 
-function Checkout() {
+function Checkout({cart}) {
     const [activeStep, setActiveStep] = useState(0); 
+    const [checkoutToken, setCheckoutToken] = useState(null);
+    const [shippingData, setShippingData] = useState({}); 
 
-    const Form = () => activeStep === 0 ? <AddressForm/> : <PaymentForm/>
+    useEffect(() => { 
+        const generateToken = async () => { 
+            try { 
+                const token = await commerce.checkout.generateToken(cart.id, {type:'cart'})
+                console.log(token)
+                setCheckoutToken(token)
+            }
+            catch (error) { 
+
+            }
+        }
+        generateToken();
+    },[cart])
+
+    const nextStep = () => setActiveStep((previousActiveStep) => previousActiveStep + 1);
+    const backStep = () => setActiveStep((previousActiveStep) => previousActiveStep - 1); 
+
+    const next = (data) => { 
+        setShippingData(data); 
+        nextStep(); 
+    }
+
+    const Form = () => activeStep === 0 ? <AddressForm checkoutToken={checkoutToken} next={next}/> : <PaymentForm/>
 
     return (
         <main id="checkout-container">
@@ -33,7 +58,7 @@ function Checkout() {
                         <p>Payment details</p>
                     </div>
                 </div>
-                {activeStep === 2 ? <Confirmation/> : <Form/>}
+                {activeStep === 2 ? <Confirmation/> : checkoutToken && <Form/>}
             </div>
         </main>
     )

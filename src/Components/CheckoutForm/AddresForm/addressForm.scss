@@ -1,3 +1,5 @@
+@import "../../../colorscheme";
+
 #address-form-container {
     display: flex;
     flex-direction: column;
@@ -6,4 +8,25 @@
     width: 100%; 
     height: 100%; 
     color: white; 
+    #checkout-form{ 
+        display: flex;
+        flex-direction: column;
+    }
+    #select-field-container { 
+        display: flex;
+        justify-content: center;
+        width: 100%; 
+        margin-top: 10px;
+        .select-field { 
+            width: 200px;
+            margin-right: 5px;
+            border: none;
+            background-color: $accentColor; 
+            padding: 5px; 
+            font-weight: 600;
+            &:hover { 
+                cursor: pointer;
+            }
+        }
+    }
 }
