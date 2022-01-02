@@ -7,13 +7,14 @@ function CustomTextField({name, label}) {
     const { control } = useFormContext(); 
 
     return (
-        <>
+        <div id="custom-text-field-container">
             <label id= "checkout-text-field-label">{label}</label>
             <input
             control={control}
             name = {name}
+            id = "checkout-input-field"
             />
-        </>
+        </div>
     )
 }
 

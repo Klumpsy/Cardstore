@@ -1,3 +1,18 @@
-#checkout-text-field-label{ 
-    margin-right: 10px; 
+@import "../../../colorscheme"; 
+
+#custom-text-field-container { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+
+    #checkout-input-field { 
+        width: 300px; 
+        padding: 5px; 
+        &:focus { 
+            outline: none; 
+            border-color: $accentColor; 
+        }
+    }
 }
+
+

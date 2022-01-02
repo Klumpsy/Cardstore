@@ -1,11 +1,17 @@
-import React from 'react'
+import React from 'react';
+import {Elements, CardElement, ElementsConsumer} from '@stripe/react-stripe-js'; 
+import {loadStrip} from '@stripe/stripe-js'; 
+
+import Review from "../Review/Review"
 
 import "./paymentForm.css"
 
-function PaymentForm() {
+function PaymentForm({checkoutToken}) {
     return (
         <div id= "payment-form-container">
-            Payment Form
+            <>
+                <Review checkoutToken = {checkoutToken}/>
+            </>
         </div>
     )
 }

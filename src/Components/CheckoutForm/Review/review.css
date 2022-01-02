@@ -1,4 +1,4 @@
-#custom-text-field-container {
+#order-summery-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,15 +9,9 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
 }
-
-#custom-text-field-container #checkout-input-field {
-  width: 300px;
-  padding: 5px;
-}
-
-#custom-text-field-container #checkout-input-field:focus {
-  outline: none;
-  border-color: #91d891;
-}
-/*# sourceMappingURL=customTextField.css.map */
+/*# sourceMappingURL=review.css.map */

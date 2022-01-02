@@ -56,15 +56,15 @@ function AddressForm({checkoutToken, next}) {
         <div id ="address-form-container">
             <h2>Shipping Address</h2>
             <FormProvider {...methods}>
-                <form id="checkout-form" onSubmit={methods.handleSubmit((data) => next({...data, shippingCountry, shippingSubdivision, shippingOption}))}>
+                <form id="checkout-form" onSubmit={methods.handleSubmit((data) => next({ ...data, shippingCountry, shippingSubdivision, shippingOption}))}>
                     <CustomTextField name="firstName" label="First Name"/>
                     <CustomTextField name="lastName" label="Last Name"/>
                     <CustomTextField name="email" label="Email"/>
                     <CustomTextField name="address1" label="Address"/>
                     <CustomTextField name="city" label="City"/>
                     <CustomTextField name="zip" label="ZIP/Postal Code"/>
-                </form>
-                <div id="select-field-container">
+                
+                    <div id="select-field-container">
                         <select className = "select-field" value={shippingCountry} onChange ={(e) => setShippingCountry(e.target.value)}>
                             {
                                 Object.entries(shippingCountries).map(country => ( 
@@ -93,12 +93,13 @@ function AddressForm({checkoutToken, next}) {
                             id="cart-checkout-button"
                             to = "/cart"
                             >Back to cart</Link>
-                            {/* <Link
+                            <button
                             id="cart-checkout-button"
                             type = "submit"
-                            >next</Link> */}
+                            >next</button>
                         </div>
-                </div>
+                    </div>
+                </form>
             </FormProvider>
         </div>
     )

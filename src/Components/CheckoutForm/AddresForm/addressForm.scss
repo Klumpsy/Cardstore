@@ -3,7 +3,7 @@
 #address-form-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: flex-start; 
     align-items: center;
     width: 100%; 
     height: 100%; 
@@ -11,6 +11,9 @@
     #checkout-form{ 
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%; 
     }
     #select-field-container { 
         display: flex;
