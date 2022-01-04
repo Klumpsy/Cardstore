@@ -10,6 +10,7 @@ function CustomTextField({name, label}) {
         <div id="custom-text-field-container">
             <label id= "checkout-text-field-label">{label}</label>
             <input
+            required
             control={control}
             name = {name}
             id = "checkout-input-field"

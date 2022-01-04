@@ -34,7 +34,7 @@
   width: 100%;
 }
 
-#address-form-container #select-field-container {
+#address-form-container #checkout-form #select-field-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -45,7 +45,7 @@
   margin-top: 10px;
 }
 
-#address-form-container #select-field-container .select-field {
+#address-form-container #checkout-form #select-field-container .select-field {
   width: 200px;
   margin-right: 5px;
   border: none;
@@ -54,7 +54,43 @@
   font-weight: 600;
 }
 
-#address-form-container #select-field-container .select-field:hover {
+#address-form-container #checkout-form #select-field-container .select-field:hover {
   cursor: pointer;
+}
+
+#address-form-container #checkout-form #shipping-buttons-container {
+  margin-top: 2rem;
+}
+
+#address-form-container #checkout-form #shipping-buttons-container .cart-checkout-button {
+  text-decoration: none;
+  margin-right: 10px;
+  padding: 10px;
+  width: 120px;
+  font-weight: 600;
+  font-size: 15px;
+  color: black;
+  border-radius: 16px;
+  border: none;
+}
+
+#address-form-container #checkout-form #shipping-buttons-container .cart-checkout-button:hover {
+  cursor: pointer;
+}
+
+#address-form-container #checkout-form #shipping-buttons-container #cart-back-to-cart-button {
+  background-color: #ee965c;
+}
+
+#address-form-container #checkout-form #shipping-buttons-container #cart-back-to-cart-button:hover {
+  background-color: #f8dbb9;
+}
+
+#address-form-container #checkout-form #shipping-buttons-container #cart-shipping-to-payment-button {
+  background-color: #7ed3e2;
+}
+
+#address-form-container #checkout-form #shipping-buttons-container #cart-shipping-to-payment-button:hover {
+  background-color: #afdde6;
 }
 /*# sourceMappingURL=addressForm.css.map */

@@ -1,0 +1,12 @@
+@mixin basic-button { 
+    padding: 10px; 
+    width: 120px; 
+    font-weight: 600;
+    font-size: 15px;
+    color: black;
+    border-radius: 16px;
+    border: none; 
+    &:hover { 
+        cursor: pointer;   
+    }
+}

@@ -57,12 +57,12 @@ function AddressForm({checkoutToken, next}) {
             <h2>Shipping Address</h2>
             <FormProvider {...methods}>
                 <form id="checkout-form" onSubmit={methods.handleSubmit((data) => next({ ...data, shippingCountry, shippingSubdivision, shippingOption}))}>
-                    <CustomTextField name="firstName" label="First Name"/>
-                    <CustomTextField name="lastName" label="Last Name"/>
-                    <CustomTextField name="email" label="Email"/>
-                    <CustomTextField name="address1" label="Address"/>
-                    <CustomTextField name="city" label="City"/>
-                    <CustomTextField name="zip" label="ZIP/Postal Code"/>
+                    <CustomTextField required name="firstName" label="First Name"/>
+                    <CustomTextField required name="lastName" label="Last Name"/>
+                    <CustomTextField required name="email" label="Email"/>
+                    <CustomTextField required name="address1" label="Address"/>
+                    <CustomTextField required name="city" label="City"/>
+                    <CustomTextField required name="zip" label="ZIP/Postal Code"/>
                 
                     <div id="select-field-container">
                         <select className = "select-field" value={shippingCountry} onChange ={(e) => setShippingCountry(e.target.value)}>
@@ -88,16 +88,18 @@ function AddressForm({checkoutToken, next}) {
                                 ))
                             }
                         </select>
-                        <div>
-                            <Link
-                            id="cart-checkout-button"
-                            to = "/cart"
-                            >Back to cart</Link>
-                            <button
-                            id="cart-checkout-button"
-                            type = "submit"
-                            >next</button>
-                        </div>
+                    </div>
+                    <div id="shipping-buttons-container">
+                        <Link
+                        className= "cart-checkout-button"
+                        id = "cart-back-to-cart-button"
+                        to = "/cart"
+                        >Back to cart</Link>
+                        <button
+                        className= "cart-checkout-button"
+                        id = "cart-shipping-to-payment-button"
+                        type = "submit"
+                        >next</button>
                     </div>
                 </form>
             </FormProvider>

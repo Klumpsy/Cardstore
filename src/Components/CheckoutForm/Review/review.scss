@@ -1,7 +1,20 @@
 #order-summery-container {
     display: flex; 
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%; 
+    justify-content: center; 
+    align-items: center; 
+    h2 { 
+        margin-bottom: 15px;
+    }
+    .review-item { 
+        display: flex;
+        width: 400px; 
+        justify-content: space-between; 
+        align-items: center;
+        #review-item-name-quantity{ 
+            display: flex;
+            justify-content: space-between;
+            width: 250px; 
+        }
+    }
 }

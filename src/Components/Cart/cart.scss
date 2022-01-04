@@ -1,4 +1,5 @@
 @import "../../colorscheme"; 
+@import "../../buttonStyles"; 
 
 #cart-checkout-container { 
     display: flex; 
@@ -48,17 +49,9 @@
             }
         }
         .cart-button { 
-            padding: 10px; 
-            width: 120px; 
-            font-weight: 600;
-            font-size: 15px;
-            color: black;
-            border-radius: 16px;
-            border: none; 
-            &:hover { 
-                cursor: pointer;
-            }
+            @include basic-button; 
         }
+        
         #cart-empty-cart-button { 
             background-color: $emptyCartButtonColor;
             &:hover { 

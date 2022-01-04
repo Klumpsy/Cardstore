@@ -10,8 +10,11 @@ function Review({checkoutToken}) {
             <div>
             {
                 checkoutToken.live.line_items.map(product => (
-                    <div key = {product.name}>
-                        <span>{product.name}</span>
+                    <div key = {product.name} className = "review-item">
+                        <div id="review-item-name-quantity">
+                            <span>{product.name}</span>
+                            <span>{product.quantity}</span>
+                        </div>
                         <span>{product.line_total.formatted_with_symbol}</span>
                     </div>
                 ))

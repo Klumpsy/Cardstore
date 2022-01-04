@@ -1,4 +1,5 @@
 @import "../../../colorscheme";
+@import "../../../buttonStyles"; 
 
 #address-form-container {
     display: flex;
@@ -14,22 +15,42 @@
         align-items: center;
         justify-content: center;
         width: 100%; 
-    }
-    #select-field-container { 
-        display: flex;
-        justify-content: center;
-        width: 100%; 
-        margin-top: 10px;
-        .select-field { 
-            width: 200px;
-            margin-right: 5px;
-            border: none;
-            background-color: $accentColor; 
-            padding: 5px; 
-            font-weight: 600;
-            &:hover { 
-                cursor: pointer;
+        #select-field-container { 
+            display: flex;
+            justify-content: center;
+            width: 100%; 
+            margin-top: 10px;
+            .select-field { 
+                width: 200px;
+                margin-right: 5px;
+                border: none;
+                background-color: $accentColor; 
+                padding: 5px; 
+                font-weight: 600;
+                &:hover { 
+                    cursor: pointer;
+                }
             }
         }
-    }
+        #shipping-buttons-container { 
+            margin-top: 2rem; 
+            .cart-checkout-button { 
+                text-decoration: none; 
+                margin-right: 10px; 
+                @include basic-button; 
+            }
+            #cart-back-to-cart-button { 
+                background-color: $emptyCartButtonColor;
+                &:hover { 
+                    background-color: $emptyCartButtonColorHover;
+                }
+            }
+            #cart-shipping-to-payment-button { 
+                background-color: $checkoutButtonColor;
+                &:hover { 
+                   background-color: $checkoutButtonColorHover; 
+                }
+            }
+        }
+    } 
 }

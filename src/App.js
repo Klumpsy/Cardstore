@@ -14,6 +14,8 @@ import {commerce} from "./lib/commerce";
 function App() {
   const [products, setProducts] = useState([]); 
   const [cart, setCart] = useState({}); 
+  const [order, setOrder] = useState({}); 
+  const [errorMessage, setErrorMessage] = useState(''); 
 
   //Fetch cartdata from commerce API
   const fetchCart = async () => { 
@@ -50,6 +52,25 @@ function App() {
     setCart(cart); 
   }
 
+  //Function for clearing the cart after checkout 
+  const refreshCart = async () => { 
+    const newCart = await commerce.cart.refresh(); 
+    setCart(newCart); 
+  } 
+
+  //Function for checkout
+  const handleCaptureCheckout = async (checkoutTokenId, newOrder) => { 
+    try { 
+      const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder); 
+      setOrder(incomingOrder); 
+      refreshCart(); 
+    }
+    catch (error) { 
+      setErrorMessage(error.data.error.message); 
+      console.log(errorMessage)
+    }
+  }
+
   useEffect(() => { 
     fetchProducts(); 
     fetchCart(); 
@@ -71,7 +92,7 @@ function App() {
             handleEmptyCart ={handleEmptyCart}
             />
             }/>
-            <Route path = "/checkout" element = {<Checkout cart={cart}/>}/>
+            <Route path = "/checkout" element = {<Checkout cart={cart} order={order} onCaptureCheckout ={handleCaptureCheckout} error={errorMessage}/>}/>
           </Routes>
         </div>
       </Router>
