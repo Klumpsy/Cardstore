@@ -32,6 +32,16 @@
                 }
             }
         }
+       
+        #checkout-input-field { 
+            width: 300px; 
+            padding: 5px; 
+            &:focus { 
+                outline: none; 
+                border-color: $accentColor; 
+            }
+        }
+        
         #shipping-buttons-container { 
             margin-top: 2rem; 
             .cart-checkout-button { 

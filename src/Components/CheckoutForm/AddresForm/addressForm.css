@@ -58,6 +58,16 @@
   cursor: pointer;
 }
 
+#address-form-container #checkout-form #checkout-input-field {
+  width: 300px;
+  padding: 5px;
+}
+
+#address-form-container #checkout-form #checkout-input-field:focus {
+  outline: none;
+  border-color: #91d891;
+}
+
 #address-form-container #checkout-form #shipping-buttons-container {
   margin-top: 2rem;
 }

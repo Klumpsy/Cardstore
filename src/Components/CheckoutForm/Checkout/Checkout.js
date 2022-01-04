@@ -34,6 +34,7 @@ function Checkout({cart, order, onCaptureCheckout, error}) {
     const next = (data) => { 
         setShippingData(data); 
         nextStep(); 
+        console.log(order)
     }
 
     const Form = () => activeStep === 0 ? 
@@ -66,7 +67,7 @@ function Checkout({cart, order, onCaptureCheckout, error}) {
                         <p>Payment details</p>
                     </div>
                 </div>
-                {activeStep === 2 ? <Confirmation/> : checkoutToken && <Form/>}
+                {activeStep === 2 ? <Confirmation error ={error} order={order}/> : checkoutToken && <Form/>}
             </div>
         </main>
     )

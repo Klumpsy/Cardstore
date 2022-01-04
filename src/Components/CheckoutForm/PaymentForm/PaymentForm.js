@@ -1,5 +1,5 @@
 import React from 'react';
-import {Elements, CardElement, ElementsConsumer} from '@stripe/react-stripe-js'; 
+import {Elements, CardElement, ElementsConsumer, CardNumberElement} from '@stripe/react-stripe-js'; 
 import {loadStripe} from '@stripe/stripe-js'; 
 
 import Review from "../Review/Review"
@@ -27,9 +27,13 @@ function PaymentForm({checkoutToken, shippingData, backStep, onCaptureCheckout, 
                 shipping: { name: 'International', street: shippingData.address1, town_city: shippingData.city, county_state: shippingData.shippingSubdivision, postal_zip_code: shippingData.zip, country: shippingData.shippingCountry },
                 fulfillment: { shipping_method: shippingData.shippingOption },
                 payment: {
-                  gateway: 'stripe',
-                  stripe: {
-                    payment_method_id: paymentMethod.id,
+                  gateway: 'test_gateway',
+                  card: { 
+                      number: '4242 4242 4242 4242', 
+                      expiry_month:  '01',
+                      expiry_year: '2023',
+                      cvc: '123', 
+                      postal_zip_code: "94103"
                   },
                 },
               };
