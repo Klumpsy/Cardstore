@@ -27,7 +27,14 @@
   border-radius: 16px;
 }
 
+@media (max-width: 650px) {
+  #payment-form-container #paymentform-stripe-payment {
+    width: 100%;
+  }
+}
+
 .checkout-payment-button {
+  text-align: center;
   padding: 10px;
   width: 120px;
   font-weight: 600;
@@ -48,6 +55,12 @@
 
 #back-button:hover {
   background-color: #f8dbb9;
+}
+
+@media (max-width: 650px) {
+  #back-button {
+    width: 100%;
+  }
 }
 
 #checkout-payment-submit-pay-button {

@@ -15,7 +15,7 @@ function Review({checkoutToken}) {
                             <span>{product.name}</span>
                             <span>{product.quantity}</span>
                         </div>
-                        <span>{product.line_total.formatted_with_symbol}</span>
+                        <span id="review-item-price">{product.line_total.formatted_with_symbol}</span>
                     </div>
                 ))
             }

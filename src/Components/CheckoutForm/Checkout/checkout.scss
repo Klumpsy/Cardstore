@@ -1,4 +1,5 @@
 @import "../../../colorscheme";
+@import "../../../mediaQueries"; 
 
 #checkout-container { 
     display: flex; 
@@ -7,6 +8,7 @@
     align-items: center;
     width: 100%; 
     height: 100vh; 
+    padding-top: 100px; 
     h1 { 
         color: white; 
         margin-bottom: 15px;
@@ -25,11 +27,17 @@
         color: white; 
         overflow-y: auto;
         background: linear-gradient(0deg, rgba(109,117,111,0.8) 0%, rgba(12,13,12,1) 20%, rgba(23,23,22,1) 100%); 
-
+        @include for-custom-media(650px) { 
+            width: 95%; 
+            height: 80%; 
+        }
         #checkout-stepper-container{ 
             display: flex;
             justify-content: space-between; 
             align-items: center;
+            @include for-custom-media(650px) { 
+                margin-bottom: 20px; 
+            }
             .checkout-stepper-line { 
                 width: 70%; 
                 height: 2px; 
@@ -44,6 +52,10 @@
                 justify-content: center;
                 align-items: center;
                 min-width: 150px; 
+                @include for-custom-media(400px) { 
+                    min-width: 100px; 
+                    text-align: center;
+                }
 
                 .checkout-stepper-step-component-circle { 
                     display: flex;
@@ -56,6 +68,11 @@
                     width: 45px;
                     height: 45px;
                     border-radius: 50%;
+                    @include for-custom-media(400px) { 
+                        width: 25px;
+                        height: 25px;
+                        font-size: .8rem;
+                    }
                 }
                 .checkout-stepper-active { 
                     background-color: $accentColor;

@@ -1,5 +1,6 @@
 @import "../../../colorscheme";
 @import "../../../buttonStyles"; 
+@import "../../../mediaQueries";
 
 #address-form-container {
     display: flex;
@@ -20,13 +21,21 @@
             justify-content: center;
             width: 100%; 
             margin-top: 10px;
+            @include for-custom-media(650px) { 
+                flex-direction: column;
+                align-items: center;
+            }
             .select-field { 
                 width: 200px;
                 margin-right: 5px;
                 border: none;
                 background-color: $accentColor; 
-                padding: 5px; 
+                padding: 6px; 
                 font-weight: 600;
+                @include for-custom-media(650px) { 
+                    margin-top: 5px; 
+                    width: 250px;  
+                }
                 &:hover { 
                     cursor: pointer;
                 }
@@ -36,6 +45,10 @@
         #checkout-input-field { 
             width: 300px; 
             padding: 5px; 
+            @include for-custom-media(650px) { 
+                width: 250px; 
+                padding: 4px;  
+            }
             &:focus { 
                 outline: none; 
                 border-color: $accentColor; 
@@ -43,11 +56,22 @@
         }
         
         #shipping-buttons-container { 
-            margin-top: 2rem; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem; 
+            width: 100%; 
+            @include for-custom-media(650px) { 
+                flex-direction: column;
+            }
             .cart-checkout-button { 
                 text-decoration: none; 
                 margin-right: 10px; 
                 @include basic-button; 
+                @include for-custom-media(650px) { 
+                    @include basic-mobile-button;
+                    margin-top: 5px; 
+                }
             }
             #cart-back-to-cart-button { 
                 background-color: $emptyCartButtonColor;

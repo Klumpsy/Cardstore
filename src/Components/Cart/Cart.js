@@ -41,8 +41,7 @@ function Cart({ cart, handleUpdateCartQuantity, handleRemoveItemFromCart, handle
                     >Checkout</Link>
                 </div>
                 <div id="cart-checkout-subtotal-price">
-                    <h3>Subtotal: </h3>
-                    <span>{cart.subtotal.formatted_with_symbol}</span>
+                    <h3>Subtotal: {cart.subtotal.formatted_with_symbol}</h3>
                 </div>
             </div>
         </div>

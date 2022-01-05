@@ -1,5 +1,6 @@
 @import "../../colorscheme"; 
 @import "../../buttonStyles"; 
+@import "../../mediaQueries"; 
 
 #cart-checkout-container { 
     display: flex; 
@@ -8,10 +9,15 @@
     align-items: center;
     width: 100%; 
     height: 100vh; 
+    padding-top: 120px; 
     h1 { 
         color: white; 
         margin-bottom: 15px;
         margin-top: 2rem;
+        @include for-custom-media(650px) { 
+            font-size: 1.5rem;  
+            text-align: center;
+        }
     }
 
     .cart-checkout-box { 
@@ -27,6 +33,9 @@
         color: white; 
         overflow-y: auto;
         background: linear-gradient(0deg, rgba(109,117,111,0.8) 0%, rgba(12,13,12,1) 20%, rgba(23,23,22,1) 100%); 
+        @include for-custom-media(650px) { 
+            width: 95%;  
+        }
         #cart-empty-back-link { 
             width: 100%; 
             text-align: center;
@@ -40,30 +49,53 @@
             display: flex;
             justify-content: space-between; 
             margin: 20px; 
+            @include for-custom-media(650px) { 
+                flex-direction: column;
+                justify-content: center;
+                align-items: center; 
+            }
             #cart-checkout-subtotal-price { 
                 display: flex;
                 align-items: flex-end;
                 h3 { 
                     margin-right: 15px; 
+                    @include for-custom-media(650px) {
+                        margin-top: 10px;  
+                        text-align: center;
+                    }
                 }
             }
         }
-        .cart-button { 
-            @include basic-button; 
-        }
-        
-        #cart-empty-cart-button { 
-            background-color: $emptyCartButtonColor;
-            &:hover { 
-                background-color: $emptyCartButtonColorHover;
+
+        #cart-checkout-buttons { 
+            display: flex;
+            width: 100%; 
+            align-items: center;
+            @include for-custom-media(650px) {
+                flex-direction: column; 
             }
-        }
-        #cart-checkout-button { 
-            background-color: $checkoutButtonColor;
-            margin-left: 5px; 
-            text-decoration: none;
-            &:hover { 
-                background-color: $checkoutButtonColorHover;
+            .cart-button { 
+                @include basic-button; 
+                margin-top: 5px; 
+                @include for-custom-media(650px) {
+                max-width: 250px; 
+                width: 100%; 
+                }
+            }
+            
+            #cart-empty-cart-button { 
+                background-color: $emptyCartButtonColor;
+                &:hover { 
+                    background-color: $emptyCartButtonColorHover;
+                }
+            }
+            #cart-checkout-button { 
+                background-color: $checkoutButtonColor;
+                margin-left: 5px; 
+                text-decoration: none;
+                &:hover { 
+                    background-color: $checkoutButtonColorHover;
+                }
             }
         }
     }

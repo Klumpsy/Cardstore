@@ -1,3 +1,51 @@
-#confirmation-container{ 
-    color: white; 
+@import "../../../buttonStyles";
+@import "../../../colorscheme";
+@import "../../../mediaQueries"; 
+
+#confirmation-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    color: white;
+    h1 { 
+        @include for-custom-media(650px) { 
+            font-size: 20px;
+        }
+    }
+    @include for-custom-media(650px) { 
+        text-align: center
+    }
+}
+
+.back-to-home-button { 
+    @include basic-button;
+    text-decoration: none; 
+    margin-top: 15px; 
+    background-color: $checkoutButtonColor; 
+    &:hover { 
+        background-color: $checkoutButtonColorHover; 
+    }   
+    @include for-custom-media(650px) { 
+        width: 100%;  
+    }
+}
+
+#confirmation-wait-wrapper { 
+    display: flex;
+    justify-content: center;
+    width: 100%; 
+    text-align: center;
+    align-items: center;
+}
+
+#confirmation-error-container{ 
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .back-to-home-button { 
+        width: 250px; 
+    }
 }

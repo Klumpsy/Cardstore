@@ -16,6 +16,12 @@ function App() {
   const [cart, setCart] = useState({}); 
   const [order, setOrder] = useState({}); 
   const [errorMessage, setErrorMessage] = useState(''); 
+  const [width, setWidth] = useState(window.innerWidth); 
+
+  //Check width for mobile 
+  useEffect(() => { 
+    window.addEventListener('resize', () => setWidth(window.innerWidth)); 
+  }, []);
 
   //Fetch cartdata from commerce API
   const fetchCart = async () => { 
@@ -26,12 +32,13 @@ function App() {
   const fetchProducts = async () => { 
     const { data } = await commerce.products.list(); 
     setProducts(data); 
+    console.log(data)
   }
 
   //Function for adding items to the shoppingcart 
   const handleAddToCard = async (productId, quantity) => { 
     const { cart } = await commerce.cart.add(productId, quantity); 
-    setCart(cart); 
+    setCart(cart);
   }
 
   //Function for updating cart quantity
@@ -79,7 +86,7 @@ function App() {
   return (
       <Router>
          <div className="App">
-         <Navbar totalItems = {cart.total_items}/>
+         <Navbar totalItems = {cart.total_items} width={width}/>
           <Routes>
             <Route path = "/" element = {<Products products = {products} addProduct = {handleAddToCard}/>}/>
             <Route 

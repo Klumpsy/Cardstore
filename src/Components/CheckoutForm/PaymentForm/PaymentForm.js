@@ -12,6 +12,7 @@ function PaymentForm({checkoutToken, shippingData, backStep, onCaptureCheckout, 
 
     const handleSubmit = async (event, elements,stripe) => { 
         event.preventDefault(); 
+
         if (!stripe || !elements) return; 
 
         const cardElement = elements.getElement(CardElement); 
@@ -39,6 +40,7 @@ function PaymentForm({checkoutToken, shippingData, backStep, onCaptureCheckout, 
               };
         
             onCaptureCheckout(checkoutToken.id, orderData); 
+
             nextStep(); 
         }
     }

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import "./checkout.css";
 import {commerce} from "../../../lib/commerce";
 
@@ -10,10 +11,13 @@ import AddressForm from '../AddresForm/AddressForm';
 import PaymentForm from "../PaymentForm/PaymentForm";
 import Confirmation from "../Confirmation/Confirmation";
 
+
 function Checkout({cart, order, onCaptureCheckout, error}) {
     const [activeStep, setActiveStep] = useState(0); 
     const [checkoutToken, setCheckoutToken] = useState(null);
     const [shippingData, setShippingData] = useState({}); 
+    
+    const navigate = useNavigate(); 
 
     useEffect(() => { 
         const generateToken = async () => { 
@@ -22,7 +26,7 @@ function Checkout({cart, order, onCaptureCheckout, error}) {
                 setCheckoutToken(token)
             }
             catch (error) { 
-
+                navigate('/')
             }
         }
         generateToken();
