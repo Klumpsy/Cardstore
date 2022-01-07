@@ -1,0 +1,10 @@
+#search-input-label {
+  color: white;
+}
+
+#search-input-label #search-input {
+  width: 300px;
+  padding: 4px;
+  margin-bottom: 30px;
+}
+/*# sourceMappingURL=searchbar.css.map */

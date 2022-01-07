@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 
 import "./confirmation.css"
 
-let Confirmation = ({order, error}) => (
+let Confirmation = ({order, error}) => {
+
+    return (
     error ? 
     <div id ="confirmation-error-container">
         <p>Error: {error}</p>
@@ -31,6 +33,7 @@ let Confirmation = ({order, error}) => (
     <div id="confirmation-wait-conainer">
         Wait a second for your order to be processed.. 
     </div>
-)
+    )
+}
 
 export default Confirmation

@@ -12,7 +12,7 @@ import PaymentForm from "../PaymentForm/PaymentForm";
 import Confirmation from "../Confirmation/Confirmation";
 
 
-function Checkout({cart, order, onCaptureCheckout, error}) {
+function Checkout({cart, order, onCaptureCheckout, error, fetchProducts}) {
     const [activeStep, setActiveStep] = useState(0); 
     const [checkoutToken, setCheckoutToken] = useState(null);
     const [shippingData, setShippingData] = useState({}); 
@@ -38,7 +38,6 @@ function Checkout({cart, order, onCaptureCheckout, error}) {
     const next = (data) => { 
         setShippingData(data); 
         nextStep(); 
-        console.log(order)
     }
 
     const Form = () => activeStep === 0 ? 

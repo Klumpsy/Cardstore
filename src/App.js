@@ -32,7 +32,6 @@ function App() {
   const fetchProducts = async () => { 
     const { data } = await commerce.products.list(); 
     setProducts(data); 
-    console.log(data)
   }
 
   //Function for adding items to the shoppingcart 
@@ -65,6 +64,12 @@ function App() {
     setCart(newCart); 
   } 
 
+  //Function to query the products 
+  const queryProducts =  async (query) => { 
+    const filteredProducts = await commerce.products.list({query: {query}})
+    setProducts(filteredProducts);
+  }
+
   //Function for checkout
   const handleCaptureCheckout = async (checkoutTokenId, newOrder) => { 
     try { 
@@ -88,7 +93,7 @@ function App() {
          <div className="App">
          <Navbar totalItems = {cart.total_items} width={width}/>
           <Routes>
-            <Route path = "/" element = {<Products products = {products} addProduct = {handleAddToCard}/>}/>
+            <Route path = "/" element = {<Products products = {products} addProduct = {handleAddToCard} queryProducts = {queryProducts}/>}/>
             <Route 
             path = "/cart" 
             element = {
@@ -99,7 +104,14 @@ function App() {
             handleEmptyCart ={handleEmptyCart}
             />
             }/>
-            <Route path = "/checkout" element = {<Checkout cart={cart} order={order} onCaptureCheckout ={handleCaptureCheckout} error={errorMessage}/>}/>
+            <Route path = "/checkout" 
+            element = {
+            <Checkout 
+            cart={cart} 
+            order={order} 
+            onCaptureCheckout ={handleCaptureCheckout} 
+            error={errorMessage}/>
+            }/>
           </Routes>
         </div>
       </Router>

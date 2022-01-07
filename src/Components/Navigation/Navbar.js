@@ -9,7 +9,7 @@ import {GiHamburgerMenu} from "react-icons/gi"
 
 function Navbar({ totalItems, width }) {
 
-    const [toggleNav, setToggleNav] = useState(false); 
+    const [toggleNav, setToggleNav] = useState(true); 
     
     //Uselocation Hook instance of the location object
     const location = useLocation(); 

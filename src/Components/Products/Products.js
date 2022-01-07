@@ -1,25 +1,20 @@
 import React from 'react'
 import "./products.css"
 
-import {HiShoppingCart} from "react-icons/hi"
+//Components
+import Searchbar from './SearchBar/Searchbar'
+import SingleProduct from './SingleProduct/SingleProduct'
 
-function Products({products, addProduct}) {
+function Products({products, addProduct, queryProducts}) {
 
     return (
-        <main id="product-container" data-testid = "product-container-test">
-            {products.map(product => ( 
-                <div key ={product.id} className= "product-item" data-testid = "product-shopping-card-test">
-                     <div className = {product.inventory.available === 0 ? "product-card-disabled" : "product-card-active"}></div>
-                    <img src={product.image["url"]}/>
-                    <h3>{product.name}</h3>
-                    <p>Available: {product.inventory.available}</p>
-                    <p>€{product.price["raw"]},-</p>
-                    <HiShoppingCart 
-                    className="product-shopping-card-icon"
-                    onClick = {() => addProduct(product.id, 1)}
-                    size ={25}/>
-                </div>
-            ))}
+        <main id="product-page-wrapper">
+            <Searchbar queryProducts={queryProducts}/>
+            <div id="product-container" data-testid = "product-container-test">
+                {products.length > 0 ? products.map(product => (
+                    <SingleProduct product = {product} addProduct = {addProduct}/>
+                )): "Nothing found"}
+            </div>
         </main>
     )
 }
