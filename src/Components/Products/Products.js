@@ -5,14 +5,14 @@ import "./products.css"
 import Searchbar from './SearchBar/Searchbar'
 import SingleProduct from './SingleProduct/SingleProduct'
 
-function Products({products, addProduct, queryProducts}) {
+function Products({products, addProduct, filteredProducts, setFilteredProducts}) {
 
     return (
         <main id="product-page-wrapper">
-            <Searchbar queryProducts={queryProducts}/>
+            <Searchbar products = {products} setFilteredProducts = {setFilteredProducts}/>
             <div id="product-container" data-testid = "product-container-test">
-                {products.length > 0 ? products.map(product => (
-                    <SingleProduct product = {product} addProduct = {addProduct}/>
+                {filteredProducts.length > 0 ? filteredProducts.map(filteredProduct => (
+                    <SingleProduct key = {filteredProduct.id} product = {filteredProduct} addProduct = {addProduct}/>
                 )): "Nothing found"}
             </div>
         </main>

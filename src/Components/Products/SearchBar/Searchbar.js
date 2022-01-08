@@ -1,12 +1,22 @@
 import React from 'react'
 import "./searchbar.css"
 
-export default function Searchbar({queryProducts}) {
+function Searchbar({products, setFilteredProducts}) {
+
+    let productsFilter = (searchInput) => { 
+        const filtered = products.filter(product => { 
+            return product.name.toLowerCase().includes(searchInput.toLowerCase());
+        })
+        setFilteredProducts(filtered);
+    }
+
     return (
         <div>
-            <label for="search-input" id="search-input-label">
-                Search: <input id="search-input" onChange ={(e) => queryProducts(e.target.value)}></input>
+            <label id="search-input-label">
+                Search: <input id="search-input" onChange = {(e) => productsFilter(e.target.value)}></input>
             </label>
         </div>
     )
 }
+
+export default Searchbar

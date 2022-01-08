@@ -27,6 +27,9 @@
             background: linear-gradient(315deg, rgba(109,117,111,1) 0%, rgba(12,13,12,1) 35%, rgba(23,23,22,1) 100%); 
             color: white; 
             box-shadow: rgb(162, 164, 167) 3px 3px 6px 0px inset, rgba(141, 138, 138, 0.5) -3px -3px 6px 1px inset;
+            &:hover { 
+                box-shadow: rgb(143, 228, 169) 2px 4px 10px 3px, rgba(141, 138, 138, 0.5) 2px 4px 150px 1px inset;
+            }
             @include for-custom-media(650px) { 
                 min-width: 250px;  
                 max-width: 250px;
@@ -49,6 +52,7 @@
             h3 { 
                 font-size: 20px;
                 margin-bottom: 10px; 
+                text-align: center;
             }
             .product-shopping-card-icon { 
                 position: absolute;
@@ -59,6 +63,25 @@
                     color: rgb(147, 236, 147); 
                     transform: scale(1.1);
                     transition: .4s ease-in-out;
+                }
+            }
+            #variant-container { 
+                margin-top: 7px; 
+                .product-variant {
+                    text-align: center;
+                    font-weight: 600;
+                    padding: 5px; 
+                    background-color: rgb(245, 218, 97);
+                    margin: 2px; 
+                    border-radius: 16px;
+                    color: black; 
+                    &:hover { 
+                        background-color: rgb(233, 213, 177);
+                        cursor: pointer;
+                    }
+                }
+                .product-chosen-variant { 
+                    background-color: rgb(153, 202, 138);
                 }
             }
         }

@@ -13,6 +13,7 @@ import {commerce} from "./lib/commerce";
 
 function App() {
   const [products, setProducts] = useState([]); 
+  const [filteredProducts, setFilteredProducts] = useState([]); 
   const [cart, setCart] = useState({}); 
   const [order, setOrder] = useState({}); 
   const [errorMessage, setErrorMessage] = useState(''); 
@@ -32,11 +33,12 @@ function App() {
   const fetchProducts = async () => { 
     const { data } = await commerce.products.list(); 
     setProducts(data); 
+    setFilteredProducts(data); 
   }
 
   //Function for adding items to the shoppingcart 
-  const handleAddToCard = async (productId, quantity) => { 
-    const { cart } = await commerce.cart.add(productId, quantity); 
+  const handleAddToCard = async (productId, quantity, option) => { 
+    const { cart } = await commerce.cart.add(productId, quantity, option); 
     setCart(cart);
   }
 
@@ -64,12 +66,6 @@ function App() {
     setCart(newCart); 
   } 
 
-  //Function to query the products 
-  const queryProducts =  async (query) => { 
-    const filteredProducts = await commerce.products.list({query: {query}})
-    setProducts(filteredProducts);
-  }
-
   //Function for checkout
   const handleCaptureCheckout = async (checkoutTokenId, newOrder) => { 
     try { 
@@ -93,7 +89,14 @@ function App() {
          <div className="App">
          <Navbar totalItems = {cart.total_items} width={width}/>
           <Routes>
-            <Route path = "/" element = {<Products products = {products} addProduct = {handleAddToCard} queryProducts = {queryProducts}/>}/>
+            <Route 
+            path = "/" 
+            element = {<Products 
+            products = {products} 
+            addProduct = {handleAddToCard} 
+            setFilteredProducts = {setFilteredProducts}
+            filteredProducts = {filteredProducts}
+            />}/>
             <Route 
             path = "/cart" 
             element = {

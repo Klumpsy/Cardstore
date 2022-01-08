@@ -5,8 +5,8 @@ import "./cartItem.css"
 //icons
 import {RiDeleteBin2Fill} from "react-icons/ri"
 
-
 function CartItem({item, handleUpdateCartQuantity, handleRemoveItemFromCart}) {
+
     return (
         <div id="cart-item">
             <div id="cart-item-info">

@@ -61,7 +61,7 @@ function AddressForm({checkoutToken, next}) {
     //Function for submitting the From 
     const handleSubmitClick = (e) => { 
         e.preventDefault(); 
-        next({ ...state, shippingCountry, shippingSubdivision, shippingOption })
+        next({ ...state, shippingCountry, shippingSubdivision, shippingOption})
     }
 
     useEffect(() => { 
