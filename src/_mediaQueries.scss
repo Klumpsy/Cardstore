@@ -1,3 +1,0 @@
-@mixin for-custom-media($size) { 
-    @media (max-width: $size) { @content; }
-}

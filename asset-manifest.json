@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Klumpsy/Cardstore.git/static/css/main.4536bdcc.css",
+    "main.js": "/Klumpsy/Cardstore.git/static/js/main.16ede30b.js",
+    "index.html": "/Klumpsy/Cardstore.git/index.html",
+    "main.4536bdcc.css.map": "/Klumpsy/Cardstore.git/static/css/main.4536bdcc.css.map",
+    "main.16ede30b.js.map": "/Klumpsy/Cardstore.git/static/js/main.16ede30b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4536bdcc.css",
+    "static/js/main.16ede30b.js"
+  ]
+}
