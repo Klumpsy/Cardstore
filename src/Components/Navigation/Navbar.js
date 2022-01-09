@@ -19,7 +19,7 @@ function Navbar({totalItems, width, products, setFilteredProducts}) {
             {width > 800 ? 
         <nav id="navbar-wrapper" data-testid="navbar-test">
             <Link 
-                to = "/"
+                to = "/Cardstore"
                 id="navbar-home-container"
                 onClick={() => setFilteredProducts(products)}
                 >
@@ -30,10 +30,10 @@ function Navbar({totalItems, width, products, setFilteredProducts}) {
                 <h1>Pokécards</h1>
             </Link>
            <div id="navbar-link-container">
-               <Link to="/">About</Link>
-               <Link to="/">Cards</Link>
-               <Link to="/">Sealed product</Link>
-               {location.pathname === '/' ? 
+               <Link to="/Cardstore">About</Link>
+               <Link to="/Cardstore">Cards</Link>
+               <Link to="/Cardstore">Sealed product</Link>
+               {location.pathname === '/Cardstore/' ? 
                <Link 
                to = "cart" 
                id = "navbar-checkout-container"
@@ -50,7 +50,7 @@ function Navbar({totalItems, width, products, setFilteredProducts}) {
         :
         <nav id="navbar-wrapper" data-testid="navbar-test">
             <Link 
-                to = "/"
+                to = "/Cardstore"
                 id="navbar-home-container"
                 onClick={() => setFilteredProducts(products)}
                 >
@@ -61,15 +61,15 @@ function Navbar({totalItems, width, products, setFilteredProducts}) {
             </Link>
             <div>
                 <div className= {toggleNav ? 'mobile-nav-links mobile-nav-links-show' : 'mobile-nav-links mobile-nav-links-hidden'}>
-                    <Link to="/">About</Link>
-                    <Link to="/">Cards</Link>
-                    <Link to="/">Sealed product</Link>
+                    <Link to="/Cardstore">About</Link>
+                    <Link to="/Cardstore">Cards</Link>
+                    <Link to="/Cardstore">Sealed product</Link>
                 </div>
                 <div id = "hamburger-shoppingcart-wrapper">
                     <button onClick = {() => setToggleNav(!toggleNav)} id = "mobile-nav-hambuger-button">
                         <GiHamburgerMenu size={25}/>
                     </button>
-                    {location.pathname === '/' ?
+                    {location.pathname === '/Cardstore' ?
                     <Link 
                     onClick={() => setFilteredProducts(products)}
                     to = "cart" 

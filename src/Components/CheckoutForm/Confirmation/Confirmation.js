@@ -11,7 +11,7 @@ let Confirmation = ({order, error}) => {
         <p>Error: {error}</p>
         <p>Please check if you haven't exeeded the available items in your cart</p>
         <Link 
-        to = "/"
+        to = "/Cardstore"
         className = "back-to-home-button"
         >
         Back to Home
@@ -24,7 +24,7 @@ let Confirmation = ({order, error}) => {
             <p>We hope you enjoy your new cards {order.customer.firstname} {order.customer.lastname}!</p>
             <p>We will ship your cards (Order reference: {order.customer_reference}) as soon as we can.</p>
             <Link 
-            to = "/"
+            to = "/Cardstore"
             className = "back-to-home-button"
             >
             Back to Home
