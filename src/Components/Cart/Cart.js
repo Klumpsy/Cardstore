@@ -9,7 +9,7 @@ function Cart({ cart, handleUpdateCartQuantity, handleRemoveItemFromCart, handle
     
     const EmptyCard = () => ( 
         <div className = "cart-checkout-box">
-            <Link id="cart-empty-back-link" to ="/">Your cart is empty, start adding cards :)</Link>
+            <Link id="cart-empty-back-link" to ="/Cardstore">Your cart is empty, start adding cards :)</Link>
         </div>
     )
 
