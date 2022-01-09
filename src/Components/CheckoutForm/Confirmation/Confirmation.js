@@ -9,6 +9,7 @@ let Confirmation = ({order, error}) => {
     error ? 
     <div id ="confirmation-error-container">
         <p>Error: {error}</p>
+        <p>Please check if you haven't exeeded the available items in your cart</p>
         <Link 
         to = "/"
         className = "back-to-home-button"

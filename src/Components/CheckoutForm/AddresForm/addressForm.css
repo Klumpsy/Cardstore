@@ -152,6 +152,7 @@
 }
 
 #address-form-container #checkout-form #shipping-buttons-container #cart-back-to-cart-button {
+  min-width: 140px;
   background-color: #ee965c;
 }
 

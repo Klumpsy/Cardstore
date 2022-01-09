@@ -74,6 +74,7 @@
                 }
             }
             #cart-back-to-cart-button { 
+                min-width: 140px; 
                 background-color: $emptyCartButtonColor;
                 &:hover { 
                     background-color: $emptyCartButtonColorHover;

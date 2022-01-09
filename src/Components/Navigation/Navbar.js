@@ -7,7 +7,7 @@ import {HiShoppingCart} from "react-icons/hi"
 import {CgPokemon} from "react-icons/cg"
 import {GiHamburgerMenu} from "react-icons/gi"
 
-function Navbar({ totalItems, width }) {
+function Navbar({totalItems, width, products, setFilteredProducts}) {
 
     const [toggleNav, setToggleNav] = useState(true); 
     
@@ -20,10 +20,13 @@ function Navbar({ totalItems, width }) {
         <nav id="navbar-wrapper" data-testid="navbar-test">
             <Link 
                 to = "/"
-                id="navbar-home-container">
+                id="navbar-home-container"
+                onClick={() => setFilteredProducts(products)}
+                >
                 <CgPokemon
                 size={28}
-                id="navbar-pokeball-icon"/>
+                id="navbar-pokeball-icon"
+                />
                 <h1>Pokécards</h1>
             </Link>
            <div id="navbar-link-container">
@@ -31,7 +34,11 @@ function Navbar({ totalItems, width }) {
                <Link to="/">Cards</Link>
                <Link to="/">Sealed product</Link>
                {location.pathname === '/' ? 
-               <Link to = "cart" id = "navbar-checkout-container">
+               <Link 
+               to = "cart" 
+               id = "navbar-checkout-container"
+               onClick={() => setFilteredProducts(products)}
+               >
                     <HiShoppingCart id="navbar-checkout-cart"size={30}/>
                     <span id="navbar-checkout-cart-amount-view">{totalItems}</span>
                 </Link>
@@ -44,7 +51,9 @@ function Navbar({ totalItems, width }) {
         <nav id="navbar-wrapper" data-testid="navbar-test">
             <Link 
                 to = "/"
-                id="navbar-home-container">
+                id="navbar-home-container"
+                onClick={() => setFilteredProducts(products)}
+                >
                 <CgPokemon
                 size={28}
                 id="navbar-pokeball-icon"/>
@@ -61,7 +70,11 @@ function Navbar({ totalItems, width }) {
                         <GiHamburgerMenu size={25}/>
                     </button>
                     {location.pathname === '/' ?
-                    <Link to = "cart" id = "navbar-checkout-container">
+                    <Link 
+                    onClick={() => setFilteredProducts(products)}
+                    to = "cart" 
+                    id = "navbar-checkout-container"
+                    >
                         <HiShoppingCart id="navbar-checkout-cart"size={30}/>
                         <span id="navbar-checkout-cart-amount-view">{totalItems}</span>
                     </Link>

@@ -12,7 +12,7 @@ import PaymentForm from "../PaymentForm/PaymentForm";
 import Confirmation from "../Confirmation/Confirmation";
 
 
-function Checkout({cart, order, onCaptureCheckout, error, fetchProducts}) {
+function Checkout({cart, order, onCaptureCheckout, error}) {
     const [activeStep, setActiveStep] = useState(0); 
     const [checkoutToken, setCheckoutToken] = useState(null);
     const [shippingData, setShippingData] = useState({}); 
@@ -26,7 +26,7 @@ function Checkout({cart, order, onCaptureCheckout, error, fetchProducts}) {
                 setCheckoutToken(token)
             }
             catch (error) { 
-                navigate('/')
+                // navigate('/')
             }
         }
         generateToken();

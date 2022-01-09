@@ -87,7 +87,7 @@ function App() {
   return (
       <Router>
          <div className="App">
-         <Navbar totalItems = {cart.total_items} width={width}/>
+         <Navbar totalItems = {cart.total_items} width={width} setFilteredProducts = {setFilteredProducts} products = {products}/>
           <Routes>
             <Route 
             path = "/" 
@@ -127,3 +127,5 @@ export default App;
 //https://www.youtube.com/watch?v=377AQ0y6LPA
 
 //https://dashboard.chec.io/developer/api-keys
+
+//https://commercejs.com/docs/sdk/checkout#check-requested-quantity
