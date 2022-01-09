@@ -69,7 +69,7 @@ function Navbar({totalItems, width, products, setFilteredProducts}) {
                     <button onClick = {() => setToggleNav(!toggleNav)} id = "mobile-nav-hambuger-button">
                         <GiHamburgerMenu size={25}/>
                     </button>
-                    {location.pathname === '/Cardstore' ?
+                    {location.pathname === '/' ?
                     <Link 
                     onClick={() => setFilteredProducts(products)}
                     to = "cart" 
