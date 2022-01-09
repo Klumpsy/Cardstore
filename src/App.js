@@ -90,7 +90,7 @@ function App() {
          <Navbar totalItems = {cart.total_items} width={width} setFilteredProducts = {setFilteredProducts} products = {products}/>
           <Routes>
             <Route 
-            path = "/" 
+            path = "/Cardstore" 
             element = {<Products 
             products = {products} 
             addProduct = {handleAddToCard} 
