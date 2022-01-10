@@ -33,7 +33,7 @@ function Navbar({totalItems, width, products, setFilteredProducts}) {
                <Link to="/Cardstore">About</Link>
                <Link to="/Cardstore">Cards</Link>
                <Link to="/Cardstore">Sealed product</Link>
-               {location.pathname === '/Cardstore/' ? 
+               {location.pathname === '/Cardstore' ? 
                <Link 
                to = "cart" 
                id = "navbar-checkout-container"
@@ -69,7 +69,7 @@ function Navbar({totalItems, width, products, setFilteredProducts}) {
                     <button onClick = {() => setToggleNav(!toggleNav)} id = "mobile-nav-hambuger-button">
                         <GiHamburgerMenu size={25}/>
                     </button>
-                    {location.pathname === '/' ?
+                    {location.pathname === '/Cardstore' ?
                     <Link 
                     onClick={() => setFilteredProducts(products)}
                     to = "cart" 
