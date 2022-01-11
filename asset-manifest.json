@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Cardstore/static/css/main.d032fc41.css",
-    "main.js": "/Cardstore/static/js/main.a0817803.js",
+    "main.js": "/Cardstore/static/js/main.cc718aa9.js",
     "index.html": "/Cardstore/index.html",
     "main.d032fc41.css.map": "/Cardstore/static/css/main.d032fc41.css.map",
-    "main.a0817803.js.map": "/Cardstore/static/js/main.a0817803.js.map"
+    "main.cc718aa9.js.map": "/Cardstore/static/js/main.cc718aa9.js.map"
   },
   "entrypoints": [
     "static/css/main.d032fc41.css",
-    "static/js/main.a0817803.js"
+    "static/js/main.cc718aa9.js"
   ]
 }
