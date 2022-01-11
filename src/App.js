@@ -44,8 +44,9 @@ function App() {
 
   //Function for updating cart quantity
   const handleUpdateCartQuantity = async (productId, quantity) => { 
-    const { cart } = await commerce.cart.update(productId, {quantity}); 
-    setCart(cart);
+   const { cart } = await commerce.cart.update(productId, {quantity}); 
+  
+    setCart(cart)
   }
 
   //Function for removing items from the cart 
@@ -105,6 +106,7 @@ function App() {
             handleUpdateCartQuantity = {handleUpdateCartQuantity}
             handleRemoveItemFromCart = {handleRemoveItemFromCart}
             handleEmptyCart ={handleEmptyCart}
+            commerce = {commerce}
             />
             }/>
             <Route path = "/checkout" 

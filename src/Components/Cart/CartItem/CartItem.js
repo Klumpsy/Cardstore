@@ -1,11 +1,28 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 import "./cartItem.css"
 
 //icons
 import {RiDeleteBin2Fill} from "react-icons/ri"
 
-function CartItem({item, handleUpdateCartQuantity, handleRemoveItemFromCart}) {
+function CartItem({item, handleUpdateCartQuantity, handleRemoveItemFromCart, commerce}) {
+
+    const [availableProduct, setAvailableProduct] = useState()
+
+    useEffect( async () => { 
+        const product = await commerce.products.retrieve(item.product_id); 
+        setAvailableProduct(product.inventory.available)
+        console.log(product)
+    }, [])
+
+    function checkProductAvailability() { 
+        if(item.quantity < availableProduct) { 
+            handleUpdateCartQuantity(item.id, item.quantity + 1)
+        } else { 
+            alert("Sorry, we don't have anymore of those!")
+            return
+        }
+    }
 
     return (
         <div id="cart-item">
@@ -19,7 +36,7 @@ function CartItem({item, handleUpdateCartQuantity, handleRemoveItemFromCart}) {
                     <span>{item.quantity}</span>
                     <button 
                     id="cart-item-increment-button"
-                    onClick = {() => handleUpdateCartQuantity(item.id, item.quantity + 1)}
+                    onClick = {() => checkProductAvailability()}
                     >+</button>
                 </div>
                 <span>{item.name}</span>

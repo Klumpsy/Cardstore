@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 //Cartitem 
 import CartItem from './CartItem/CartItem';
 
-function Cart({ cart, handleUpdateCartQuantity, handleRemoveItemFromCart, handleEmptyCart }) {
+function Cart({ cart, handleUpdateCartQuantity, handleRemoveItemFromCart, handleEmptyCart, commerce}) {
     
     const EmptyCard = () => ( 
         <div className = "cart-checkout-box">
@@ -23,6 +23,7 @@ function Cart({ cart, handleUpdateCartQuantity, handleRemoveItemFromCart, handle
                     item = {item}
                     handleUpdateCartQuantity = {handleUpdateCartQuantity}
                     handleRemoveItemFromCart = {handleRemoveItemFromCart}
+                    commerce = {commerce}
                     />
                ))
             }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import "./navbar.css"
 
@@ -33,7 +33,7 @@ function Navbar({totalItems, width, products, setFilteredProducts}) {
                <Link to="/Cardstore">About</Link>
                <Link to="/Cardstore">Cards</Link>
                <Link to="/Cardstore">Sealed product</Link>
-               {location.pathname === '/Cardstore' ? 
+               {location.pathname === '/Cardstore' || '/Cardstore/' ? 
                <Link 
                to = "cart" 
                id = "navbar-checkout-container"
@@ -69,7 +69,7 @@ function Navbar({totalItems, width, products, setFilteredProducts}) {
                     <button onClick = {() => setToggleNav(!toggleNav)} id = "mobile-nav-hambuger-button">
                         <GiHamburgerMenu size={25}/>
                     </button>
-                    {location.pathname === '/Cardstore' ?
+                    {location.pathname === '/Cardstore' || '/Cardstore/' ?
                     <Link 
                     onClick={() => setFilteredProducts(products)}
                     to = "cart" 
